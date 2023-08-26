@@ -1,0 +1,38 @@
+{
+  "name": "grav_sim_web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "rollup": "^3.15.0",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.1.6",
+    "svelte": "^3.59.2"
+  },
+  "dependencies": {
+    "ci": "^2.2.0",
+    "process": "^0.11.10",
+    "sirv-cli": "^2.0.0"
+  },
+  "description": "Time to get that green back on github activity status",
+  "main": "rollup.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gall1frey/grav_sim_web.git"
+  },
+  "author": "gallifrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gall1frey/grav_sim_web/issues"
+  },
+  "homepage": "https://github.com/gall1frey/grav_sim_web#readme"
+}

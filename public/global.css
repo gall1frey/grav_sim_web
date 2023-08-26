@@ -1,0 +1,18 @@
+:root {
+    --blue: #001369;
+}
+* {
+	border: 1px solid red;
+}
+html,body {
+    background: url('images/misc/background.png');
+	font-family: 'Orbitron', sans-serif;
+	font-family: 'Wallpoet', cursive;
+    scroll-behavior: smooth;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;
+	margin:0;
+	padding:0;
+	max-width: 100%;
+	color: cyan;
+}
