@@ -1,25 +1,20 @@
 export default class Physics {
-	univGravConst;
-	astronomicalUnit;
-	timestep;
-	scaleFactor;
-	scale;
-	
+
 	constructor() {
-		let univGravConst = 6.67408e-11;
-		let astronomicalUnit = 149.6e6 * 1000;
-		let timestep = 3600 * 5;
-		let scaleFactor = 250;
-		this.setScale(scaleFactor/astronomicalUnit);
+		this.univGravConst = 6.67408e-11;
+		this.astronomicalUnit = 149.6e6 * 1000;
+		this.timestep = 3600 * 5;
+		this.scaleFactor = 250;
+		this.setScale(this.scaleFactor/this.astronomicalUnit);
 	}
 	
 	getRealWorldTime(timeInMs) {
-		return (float)((timestep * 60 * timeInMs) / (3600*365.25*1000 * 25));
+		return (float)((this.timestep * 60 * timeInMs) / (3600*365.25*1000 * 25));
 	}
 	
 	gravForce(m1, m2, pos1, pos2) {
 		dist = getDistance(pos1,pos2);
-		force = (univGravConst*m1*m2)/Math.pow(dist, 2);
+		force = (this.univGravConst*m1*m2)/Math.pow(dist, 2);
 		theta = getAngle(pos1,pos2);
 		force_x = Math.cos(theta)*force;
 		force_y = Math.sin(theta)*force;
@@ -27,11 +22,11 @@ export default class Physics {
 	}
 	
 	newVel(force, mass) {
-		return force / mass * timestep;
+		return force / mass * this.timestep;
 	}
 	
 	newPos(vel) {
-		return vel * timestep;
+		return vel * this.timestep;
 	}
 	
 	getDistance(pos1, pos2) {
@@ -55,7 +50,7 @@ export default class Physics {
 	
 	updateScale(scaleFactor) {
 		this.scaleFactor = scaleFactor;
-		setScale(this.scaleFactor/astronomicalUnit);
+		setScale(this.scaleFactor/this.astronomicalUnit);
 	}
 
 	getScale() {
@@ -67,7 +62,7 @@ export default class Physics {
 	}
 	
 	auToM(au) {
-		return astronomicalUnit*au;
+		return this.astronomicalUnit*au;
 	}
 	
 	auToM(au) {
@@ -79,7 +74,7 @@ export default class Physics {
 	}
 	
 	mToAu(m) {
-		return m/astronomicalUnit;
+		return m/this.astronomicalUnit;
 	}
 	
 	mToAu(m) {

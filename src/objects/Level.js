@@ -1,3 +1,5 @@
+import Physics from "./Physics";
+
 export default class Level {
 	levelName;
 	entities;
@@ -7,14 +9,14 @@ export default class Level {
 	goalPlanet = null;
 	timeAllowed; // in milliseconds
 
-	Level(name, objects, rocket_move, planets_move, timeAllowed) {
+	constructor(name, objects, rocket_move, planets_move, timeAllowed) {
 		this.levelName = name;
 		// First entity is rocket. Rest are planets.
 		this.setEntities(objects);
 		this.setRocketMove(rocket_move);
 		this.setPlanetsMove(planets_move);
 		this.setTimeAllowed(timeAllowed);
-		this.physics = Physics.getInstance();
+		this.physics = new Physics();
 		if (rocket_move) {
 			this.goalPlanet = objects[objects.length-1];
 		}
